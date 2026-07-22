@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diana D. Chen · Narrative-led marketing leadership</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,650&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FDFCFA; --ink:#22211D; --soft:#6B6960; --line:#E8E5DD;
+    --bluebird:#4E97D1; --bluebird-wash:#EDF4FA;
+    --golden:#DE9A2E;  --golden-wash:#FBF4E5;
+    --alpenglow:#D9707F; --alpenglow-wash:#FAEEF0;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Bricolage Grotesque',sans-serif;background:var(--paper);color:var(--ink);
+    line-height:1.55;font-size:16px;transition:background-color .6s ease;
+  }
+  body[data-tint="bluebird"]{background:var(--bluebird-wash)}
+  body[data-tint="golden"]{background:var(--golden-wash)}
+  body[data-tint="alpenglow"]{background:var(--alpenglow-wash)}
+
+  .frame{max-width:1080px;margin:0 auto;padding:0 40px;
+    display:grid;grid-template-columns:340px 1fr;gap:88px}
+
+  .rail{position:sticky;top:0;align-self:start;height:100vh;
+    display:flex;flex-direction:column;padding:64px 0 48px}
+  .rail h1{font-size:30px;font-weight:650;letter-spacing:-.02em;line-height:1.2}
+  .rail .thesis{margin-top:16px;font-size:17px;line-height:1.5}
+  .rail .tagline{margin-top:12px;font-size:15px;color:var(--soft)}
+  .rail nav{margin-top:auto;display:flex;flex-direction:column;gap:9px}
+  .rail nav a{font-size:13.5px;text-decoration:none;color:var(--soft);
+    width:fit-content;border-bottom:1px solid transparent;transition:.2s}
+  .rail nav a:hover,.rail nav a:focus-visible{color:var(--ink);border-color:var(--ink)}
+  .cta{margin-top:26px;width:fit-content;font-size:14.5px;font-weight:500;
+    text-decoration:none;color:var(--ink);padding:10px 18px;
+    border:1.5px solid var(--ink);border-radius:999px;transition:.25s}
+  .cta:hover,.cta:focus-visible{background:var(--ink);color:var(--paper)}
+
+  .content{padding:64px 0 80px;max-width:560px}
+  section{padding:36px 0;border-top:1px solid var(--line)}
+  section:first-child{border-top:none;padding-top:0}
+  .eyebrow{font-size:12px;font-weight:500;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--soft);margin-bottom:16px}
+  .content p{font-size:16px}
+  .content p+p{margin-top:12px}
+
+  .service{padding:20px 22px;margin:0 -22px 8px;border-radius:12px;transition:background .3s}
+  .service:hover,.service:focus-within{background:rgba(255,255,255,.66)}
+  .service h3{font-size:17px;font-weight:650;display:flex;align-items:baseline;gap:11px}
+  .service .dot{width:9px;height:9px;border-radius:50%;flex:none;transform:translateY(-1px)}
+  .service[data-tint="bluebird"] .dot{background:var(--bluebird)}
+  .service[data-tint="golden"] .dot{background:var(--golden)}
+  .service[data-tint="alpenglow"] .dot{background:var(--alpenglow)}
+  .service .kind{font-size:12.5px;color:var(--soft);margin:3px 0 8px 20px}
+  .service p{font-size:15px;margin-left:20px}
+
+  .cred{list-style:none}
+  .cred li{padding:10px 0;border-bottom:1px dashed var(--line);font-size:15px}
+  .cred li:last-child{border-bottom:none}
+
+  .contact a{color:var(--ink);text-underline-offset:3px}
+  footer{border-top:1px solid var(--line);padding:18px 0 26px;font-size:12.5px;color:var(--soft)}
+
+  @media(max-width:920px){
+    .frame{grid-template-columns:1fr;gap:0;padding:0 24px}
+    .rail{position:static;height:auto;padding:44px 0 8px}
+    .rail nav{display:none}
+    .content{padding:28px 0 56px}
+  }
+  @media(prefers-reduced-motion:reduce){*,body{transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="frame">
+
+  <header class="rail">
+    <h1>Diana D. Chen</h1>
+    <p class="thesis">Narrative-led marketing leadership for consumer and mission-driven brands.</p>
+    <p class="tagline">Find what's true. Make it matter.</p>
+    <nav aria-label="Sections">
+      <a href="#about">about</a>
+      <a href="#work">work with me</a>
+      <a href="#projects">projects</a>
+      <a href="#podcast">podcast</a>
+      <a href="#contact">contact</a>
+    </nav>
+    <a class="cta" href="mailto:diana.d.chen@gmail.com">Tell me what you're building →</a>
+  </header>
+
+  <main class="content">
+
+    <section id="about">
+      <p class="eyebrow">About</p>
+      <p>I was a lawyer before I was a marketer. Law teaches you to build the most compelling case the facts can honestly support. That's most of what great marketing is.</p>
+      <p>Since then, I've built a travel blog from zero to 100,000+ views, multiple podcasts with experimental governance and community, a content agency, and a variety of marketing engines for pre-seed to series B startups in the emerging tech sector.</p>
+    </section>
+
+    <section id="work">
+      <p class="eyebrow">Work with me</p>
+
+      <div class="service" data-tint="bluebird" tabindex="0">
+        <h3><span class="dot"></span>Brand Narrative &amp; Positioning</h3>
+        <p class="kind">project</p>
+        <p>Your story, found and built: positioning, messaging, and a brand voice you can say in one sentence.</p>
+      </div>
+
+      <div class="service" data-tint="golden" tabindex="0">
+        <h3><span class="dot"></span>Fractional Marketing Leadership</h3>
+        <p class="kind">ongoing retainer</p>
+        <p>A head of marketing without the full-time hire: strategy, roadmap, team management, and sourcing and managing outside agencies.</p>
+      </div>
+
+      <div class="service" data-tint="alpenglow" tabindex="0">
+        <h3><span class="dot"></span>Content &amp; Podcast Strategy</h3>
+        <p class="kind">project or retainer</p>
+        <p>The narrative turned into an engine: editorial strategy, thought leadership, and podcasting, with 4 shows built from scratch and dozens more produced over 6+ years.</p>
+      </div>
+    </section>
+
+    <section id="projects">
+      <p class="eyebrow">Projects</p>
+      <ul class="cred">
+        <li><strong>Better Half</strong>: an investigative co-pilot for deeper human connection.</li>
+        <li><strong>Plurality Labs</strong>: pluralistic grant funding for the Arbitrum DAO.</li>
+        <li><strong>RabbitHole</strong>: a platform for learning crypto by using it, through onchain quests.</li>
+        <li><strong>Unstoppable Domains</strong>: user-owned web3 domains for digital identity.</li>
+        <li><strong>Rehash</strong>: a community-owned web3 podcast with experimental governance.</li>
+        <li><strong>Content Allies</strong>: a B2B content and podcast agency.</li>
+        <li><strong>MVMT Blog</strong>: a travel publication with 100,000+ views.</li>
+        <li><strong>LawStud.io</strong>: a legal tech startup founded during law school.</li>
+      </ul>
+    </section>
+
+    <section id="podcast">
+      <p class="eyebrow">Podcast</p>
+      <p>Coming soon.</p>
+    </section>
+
+    <section id="contact" class="contact">
+      <p class="eyebrow">Contact</p>
+      <p>Tell me what you're building → <a href="mailto:diana.d.chen@gmail.com">email</a> · <a href="https://www.linkedin.com/in/dianadchen/" target="_blank" rel="noopener">LinkedIn</a></p>
+    </section>
+
+    <footer>© Diana D. Chen · 2026</footer>
+  </main>
+</div>
+
+<script>
+  const body=document.body;
+  document.querySelectorAll('.service').forEach(card=>{
+    const tint=card.dataset.tint;
+    card.addEventListener('mouseenter',()=>body.dataset.tint=tint);
+    card.addEventListener('mouseleave',()=>delete body.dataset.tint);
+    card.addEventListener('focusin',()=>body.dataset.tint=tint);
+    card.addEventListener('focusout',()=>delete body.dataset.tint);
+  });
+</script>
+</body>
+</html>
