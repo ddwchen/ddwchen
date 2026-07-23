@@ -82,11 +82,11 @@
   .cred .tags{margin-top:9px;display:flex;flex-wrap:wrap;gap:6px}
   .cred .tags span{font-size:11px;color:var(--soft);border:1px solid var(--line);
     border-radius:999px;padding:3px 10px;white-space:nowrap;line-height:1.4}
-  .cred .tags .t-pos,.legend .t-pos{color:#2f6da3;border-color:#cfe3f2;background:var(--bluebird-wash)}
-  .cred .tags .t-gtm,.legend .t-gtm{color:#a9741a;border-color:#efe0bd;background:var(--golden-wash)}
-  .cred .tags .t-content,.legend .t-content{color:#b4566a;border-color:#f1d3da;background:var(--alpenglow-wash)}
-  .cred .tags .t-design,.legend .t-design{color:#2f7d68;border-color:#cbe5dc;background:var(--sage-wash)}
-  .cred .tags .t-lead,.legend .t-lead{color:#645191;border-color:#ddd4f0;background:var(--violet-wash)}
+  .cred .tags .t-pos,.legend .t-pos,.detail-role .t-pos{color:#2f6da3;border-color:#cfe3f2;background:var(--bluebird-wash)}
+  .cred .tags .t-gtm,.legend .t-gtm,.detail-role .t-gtm{color:#a9741a;border-color:#efe0bd;background:var(--golden-wash)}
+  .cred .tags .t-content,.legend .t-content,.detail-role .t-content{color:#b4566a;border-color:#f1d3da;background:var(--alpenglow-wash)}
+  .cred .tags .t-design,.legend .t-design,.detail-role .t-design{color:#2f7d68;border-color:#cbe5dc;background:var(--sage-wash)}
+  .cred .tags .t-lead,.legend .t-lead,.detail-role .t-lead{color:#645191;border-color:#ddd4f0;background:var(--violet-wash)}
 
   .contact a,#podcast a{color:var(--ink);text-underline-offset:3px}
   footer{border-top:1px solid var(--line);padding:18px 0 26px;font-size:12.5px;color:var(--soft)}
@@ -109,7 +109,9 @@
   .detail-label{display:block;font-size:12px;font-weight:500;letter-spacing:.12em;
     text-transform:uppercase;color:var(--soft);margin-bottom:6px}
   .detail-block p{font-size:15.5px;line-height:1.6}
-  .detail-role{color:var(--ink)}
+  .detail-role{display:flex;flex-wrap:wrap;gap:6px}
+  .detail-role span{font-size:11px;color:var(--soft);border:1px solid var(--line);
+    border-radius:999px;padding:3px 10px;white-space:nowrap;line-height:1.4}
   @media(prefers-reduced-motion:reduce){.modal{animation:none}}
 
   @media(max-width:920px){
@@ -195,7 +197,7 @@
             <h2 class="detail-title">Better Half</h2>
             <p class="detail-sub">Relational AI app</p>
             <div class="detail-block"><span class="detail-label">Challenge</span><p>How do you make people want an AI built to help them understand the people they care about?</p></div>
-            <div class="detail-block"><span class="detail-label">Role</span><p class="detail-role">Category Creation · Positioning · Go-to-Market · Product Marketing</p></div>
+            <div class="detail-block"><span class="detail-label">Role</span><p class="detail-role"><span class="t-pos">Category Creation</span><span class="t-pos">Positioning</span><span class="t-gtm">Go-to-Market</span><span class="t-gtm">Product Marketing</span></p></div>
             <div class="detail-block"><span class="detail-label">What I built</span><p>Shaped the positioning and narrative for a new relational AI product, turning an unfamiliar concept into a story customers could understand in a sentence, and laid the go-to-market groundwork for launch.</p></div>
             <div class="detail-block"><span class="detail-label">Outcome</span><p>Gave the product a clear category and voice, and a launch narrative the team could build around.</p></div>
           </template>
@@ -207,7 +209,7 @@
             <h2 class="detail-title">Rehash</h2>
             <p class="detail-sub">Community-owned web3 podcast</p>
             <div class="detail-block"><span class="detail-label">Challenge</span><p>Could a podcast be owned by its listeners instead of a company?</p></div>
-            <div class="detail-block"><span class="detail-label">Role</span><p class="detail-role">Concept · Community Design · Editorial Strategy · Host</p></div>
+            <div class="detail-block"><span class="detail-label">Role</span><p class="detail-role"><span class="t-design">Concept</span><span class="t-design">Community Design</span><span class="t-content">Editorial Strategy</span><span class="t-content">Host</span></p></div>
             <div class="detail-block"><span class="detail-label">What I built</span><p>Designed one of the first experiments in onchain community-owned media, creating a governance model that allowed listeners to shape the show's future.</p></div>
             <div class="detail-block"><span class="detail-label">Outcome</span><p>The model proved viable and influenced numerous community-owned podcasts that followed.</p></div>
           </template>
@@ -219,7 +221,7 @@
             <h2 class="detail-title">Plurality Labs</h2>
             <p class="detail-sub">Web3 grants framework design</p>
             <div class="detail-block"><span class="detail-label">Challenge</span><p>How do you allocate funding in a decentralized community without relying on traditional grantmaking?</p></div>
-            <div class="detail-block"><span class="detail-label">Role</span><p class="detail-role">Program Design · Experiment Design · Community Strategy</p></div>
+            <div class="detail-block"><span class="detail-label">Role</span><p class="detail-role"><span class="t-design">Program Design</span><span class="t-design">Experiment Design</span><span class="t-design">Community Strategy</span></p></div>
             <div class="detail-block"><span class="detail-label">What I built</span><p>Designed and operated an experimental grant program exploring pluralistic funding models from concept through execution.</p></div>
             <div class="detail-block"><span class="detail-label">Outcome</span><p>Ran the entire initiative independently while generating learnings that informed future community governance.</p></div>
           </template>
@@ -231,7 +233,7 @@
             <h2 class="detail-title">RabbitHole</h2>
             <p class="detail-sub">Web3 growth and rewards</p>
             <div class="detail-block"><span class="detail-label">Challenge</span><p>How do you get people to learn crypto by using it, not just reading about it?</p></div>
-            <div class="detail-block"><span class="detail-label">Role</span><p class="detail-role">Marketing Leadership · Innovation Strategy · Editorial Strategy · Product Marketing</p></div>
+            <div class="detail-block"><span class="detail-label">Role</span><p class="detail-role"><span class="t-lead">Marketing Leadership</span><span class="t-design">Innovation Strategy</span><span class="t-content">Editorial Strategy</span><span class="t-gtm">Product Marketing</span></p></div>
             <div class="detail-block"><span class="detail-label">What I built</span><p>Led marketing for a platform that taught people crypto through onchain quests, building the content engine and the systems the team relied on to grow it.</p></div>
             <div class="detail-block"><span class="detail-label">Outcome</span><p>Helped turn a learn-by-doing model into a recognizable product with a growing, engaged user base.</p></div>
           </template>
@@ -243,7 +245,7 @@
             <h2 class="detail-title">Unstoppable Domains</h2>
             <p class="detail-sub">User-owned domains</p>
             <div class="detail-block"><span class="detail-label">Challenge</span><p>How do you make user-owned digital identity make sense to a mainstream audience?</p></div>
-            <div class="detail-block"><span class="detail-label">Role</span><p class="detail-role">Marketing Leadership · Editorial Strategy · Thought Leadership · Narrative Strategy</p></div>
+            <div class="detail-block"><span class="detail-label">Role</span><p class="detail-role"><span class="t-lead">Marketing Leadership</span><span class="t-content">Editorial Strategy</span><span class="t-content">Thought Leadership</span><span class="t-pos">Narrative Strategy</span></p></div>
             <div class="detail-block"><span class="detail-label">What I built</span><p>Led editorial and narrative strategy for user-owned web3 domains, producing thought leadership that made a technical idea approachable and grew the audience around it.</p></div>
             <div class="detail-block"><span class="detail-label">Outcome</span><p>Sharpened the brand's voice and expanded its reach within the digital-identity conversation.</p></div>
           </template>
@@ -255,7 +257,7 @@
             <h2 class="detail-title">Content Allies</h2>
             <p class="detail-sub">B2B content agency</p>
             <div class="detail-block"><span class="detail-label">Challenge</span><p>How do you produce content and podcasts for many B2B clients at once without quality slipping?</p></div>
-            <div class="detail-block"><span class="detail-label">Role</span><p class="detail-role">Organizational Design · Systems Design · Editorial Strategy · Marketing Leadership</p></div>
+            <div class="detail-block"><span class="detail-label">Role</span><p class="detail-role"><span class="t-design">Organizational Design</span><span class="t-design">Systems Design</span><span class="t-content">Editorial Strategy</span><span class="t-lead">Marketing Leadership</span></p></div>
             <div class="detail-block"><span class="detail-label">What I built</span><p>Built the editorial systems and team structure behind a B2B content and podcast agency, standardizing how shows and content were produced across clients.</p></div>
             <div class="detail-block"><span class="detail-label">Outcome</span><p>Created a repeatable production engine that delivered consistent, high-quality content at scale.</p></div>
           </template>
@@ -267,7 +269,7 @@
             <h2 class="detail-title">MVMT Blog</h2>
             <p class="detail-sub">Travel publication with 600,000+ views</p>
             <div class="detail-block"><span class="detail-label">Challenge</span><p>Could a travel publication built from scratch reach a real audience with no media budget?</p></div>
-            <div class="detail-block"><span class="detail-label">Role</span><p class="detail-role">Positioning · Editorial Strategy · Audience Growth · Community Design</p></div>
+            <div class="detail-block"><span class="detail-label">Role</span><p class="detail-role"><span class="t-pos">Positioning</span><span class="t-content">Editorial Strategy</span><span class="t-content">Audience Growth</span><span class="t-design">Community Design</span></p></div>
             <div class="detail-block"><span class="detail-label">What I built</span><p>Founded and grew a travel publication from zero, defining its editorial voice and building an audience through consistent, organic storytelling.</p></div>
             <div class="detail-block"><span class="detail-label">Outcome</span><p>Grew the publication past 600,000 readers, entirely through organic reach.</p></div>
           </template>
@@ -279,7 +281,7 @@
             <h2 class="detail-title">LawStud.io</h2>
             <p class="detail-sub">Two-sided legal marketplace</p>
             <div class="detail-block"><span class="detail-label">Challenge</span><p>How do you launch a two-sided legal marketplace and get both sides to show up?</p></div>
-            <div class="detail-block"><span class="detail-label">Role</span><p class="detail-role">Product Launch · Positioning · Narrative Strategy · Go-to-Market</p></div>
+            <div class="detail-block"><span class="detail-label">Role</span><p class="detail-role"><span class="t-gtm">Product Launch</span><span class="t-pos">Positioning</span><span class="t-pos">Narrative Strategy</span><span class="t-gtm">Go-to-Market</span></p></div>
             <div class="detail-block"><span class="detail-label">What I built</span><p>Founded a legal tech startup during law school, defining its positioning and go-to-market and building demand on both sides of the marketplace.</p></div>
             <div class="detail-block"><span class="detail-label">Outcome</span><p>Took the product from idea to launch and validated appetite for a new kind of legal marketplace.</p></div>
           </template>
