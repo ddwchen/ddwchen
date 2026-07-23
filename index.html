@@ -66,26 +66,58 @@
   .service .lead+p{margin-top:0}
   .service p{font-size:15px;margin-left:20px}
 
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin:-4px 0 22px}
+  .legend span{font-size:11px;color:var(--soft);border:1px solid var(--line);
+    border-radius:999px;padding:3px 10px;line-height:1.4}
+
   .cred{list-style:none}
   .cred li{padding:14px 0;border-bottom:1px dashed var(--line);font-size:15px}
   .cred li:last-child{border-bottom:none}
+  .cred li.proj{cursor:pointer;transition:opacity .2s}
+  .cred li.proj strong{text-underline-offset:3px}
+  .cred li.proj:hover strong,.cred li.proj:focus-visible strong{text-decoration:underline}
+  .cred li.proj .open-hint{font-size:12px;color:var(--soft);opacity:0;transition:opacity .2s}
+  .cred li.proj:hover .open-hint,.cred li.proj:focus-visible .open-hint{opacity:1}
+  .cred li.proj:focus-visible{outline:2px solid var(--bluebird);outline-offset:4px;border-radius:8px}
   .cred .tags{margin-top:9px;display:flex;flex-wrap:wrap;gap:6px}
   .cred .tags span{font-size:11px;color:var(--soft);border:1px solid var(--line);
     border-radius:999px;padding:3px 10px;white-space:nowrap;line-height:1.4}
-  .cred .tags .t-pos{color:#2f6da3;border-color:#cfe3f2;background:var(--bluebird-wash)}
-  .cred .tags .t-gtm{color:#a9741a;border-color:#efe0bd;background:var(--golden-wash)}
-  .cred .tags .t-content{color:#b4566a;border-color:#f1d3da;background:var(--alpenglow-wash)}
-  .cred .tags .t-design{color:#2f7d68;border-color:#cbe5dc;background:var(--sage-wash)}
-  .cred .tags .t-lead{color:#645191;border-color:#ddd4f0;background:var(--violet-wash)}
+  .cred .tags .t-pos,.legend .t-pos{color:#2f6da3;border-color:#cfe3f2;background:var(--bluebird-wash)}
+  .cred .tags .t-gtm,.legend .t-gtm{color:#a9741a;border-color:#efe0bd;background:var(--golden-wash)}
+  .cred .tags .t-content,.legend .t-content{color:#b4566a;border-color:#f1d3da;background:var(--alpenglow-wash)}
+  .cred .tags .t-design,.legend .t-design{color:#2f7d68;border-color:#cbe5dc;background:var(--sage-wash)}
+  .cred .tags .t-lead,.legend .t-lead{color:#645191;border-color:#ddd4f0;background:var(--violet-wash)}
 
   .contact a,#podcast a{color:var(--ink);text-underline-offset:3px}
   footer{border-top:1px solid var(--line);padding:18px 0 26px;font-size:12.5px;color:var(--soft)}
+
+  .overlay{position:fixed;inset:0;background:rgba(34,33,29,.5);
+    display:flex;align-items:center;justify-content:center;padding:24px;z-index:50}
+  .overlay[hidden]{display:none}
+  .modal{position:relative;background:var(--paper);color:var(--ink);
+    max-width:560px;width:100%;max-height:85vh;overflow-y:auto;border-radius:16px;
+    padding:40px 40px 36px;box-shadow:0 24px 64px rgba(0,0,0,.24);
+    animation:pop .22s ease}
+  @keyframes pop{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
+  .modal-close{position:absolute;top:14px;right:14px;width:34px;height:34px;border:none;
+    background:transparent;color:var(--soft);font-size:24px;line-height:1;cursor:pointer;
+    border-radius:9px;transition:.2s}
+  .modal-close:hover,.modal-close:focus-visible{background:var(--line);color:var(--ink)}
+  .detail-title{font-size:23px;font-weight:650;letter-spacing:-.01em;padding-right:32px}
+  .detail-sub{font-size:14px;color:var(--soft);margin-top:3px}
+  .detail-block{margin-top:22px}
+  .detail-label{display:block;font-size:12px;font-weight:500;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--soft);margin-bottom:6px}
+  .detail-block p{font-size:15.5px;line-height:1.6}
+  .detail-role{color:var(--ink)}
+  @media(prefers-reduced-motion:reduce){.modal{animation:none}}
 
   @media(max-width:920px){
     .frame{grid-template-columns:1fr;gap:0;padding:0 24px}
     .rail{position:static;height:auto;padding:44px 0 8px}
     .rail nav{display:none}
     .content{padding:28px 0 56px}
+    .modal{padding:34px 24px 28px}
   }
   @media(prefers-reduced-motion:reduce){*,body{transition:none!important;scroll-behavior:auto}}
 </style>
@@ -147,30 +179,109 @@
 
     <section id="projects">
       <p class="eyebrow">Projects</p>
+      <div class="legend" aria-label="Tag color key">
+        <span class="t-pos">Positioning &amp; Narrative</span>
+        <span class="t-gtm">Go-to-Market &amp; Product</span>
+        <span class="t-content">Content &amp; Audience</span>
+        <span class="t-design">Design &amp; Innovation</span>
+        <span class="t-lead">Leadership</span>
+      </div>
       <ul class="cred">
-        <li><strong>Better Half</strong>: Relational AI app
+        <li class="proj" tabindex="0" role="button" aria-haspopup="dialog">
+          <strong>Better Half</strong>: Relational AI app <span class="open-hint">→ view</span>
           <div class="tags"><span class="t-pos">Category Creation</span><span class="t-pos">Positioning</span><span class="t-gtm">Go-to-Market</span><span class="t-gtm">Product Marketing</span><span class="t-pos">Narrative Strategy</span></div>
+          <template class="detail">
+            <h2 class="detail-title">Better Half</h2>
+            <p class="detail-sub">Relational AI app</p>
+            <div class="detail-block"><span class="detail-label">Challenge</span><p>How do you make people want an AI built to help them understand the people they care about?</p></div>
+            <div class="detail-block"><span class="detail-label">Role</span><p class="detail-role">Category Creation · Positioning · Go-to-Market · Product Marketing</p></div>
+            <div class="detail-block"><span class="detail-label">What I built</span><p>Shaped the positioning and narrative for a new relational AI product, turning an unfamiliar concept into a story customers could understand in a sentence, and laid the go-to-market groundwork for launch.</p></div>
+            <div class="detail-block"><span class="detail-label">Outcome</span><p>Gave the product a clear category and voice, and a launch narrative the team could build around.</p></div>
+          </template>
         </li>
-        <li><strong>Rehash</strong>: Community-owned web3 podcast
+        <li class="proj" tabindex="0" role="button" aria-haspopup="dialog">
+          <strong>Rehash</strong>: Community-owned web3 podcast <span class="open-hint">→ view</span>
           <div class="tags"><span class="t-design">Experiment Design</span><span class="t-content">Editorial Strategy</span><span class="t-pos">Category Creation</span><span class="t-design">Innovation Strategy</span><span class="t-design">Community Design</span></div>
+          <template class="detail">
+            <h2 class="detail-title">Rehash</h2>
+            <p class="detail-sub">Community-owned web3 podcast</p>
+            <div class="detail-block"><span class="detail-label">Challenge</span><p>Could a podcast be owned by its listeners instead of a company?</p></div>
+            <div class="detail-block"><span class="detail-label">Role</span><p class="detail-role">Concept · Community Design · Editorial Strategy · Host</p></div>
+            <div class="detail-block"><span class="detail-label">What I built</span><p>Designed one of the first experiments in onchain community-owned media, creating a governance model that allowed listeners to shape the show's future.</p></div>
+            <div class="detail-block"><span class="detail-label">Outcome</span><p>The model proved viable and influenced numerous community-owned podcasts that followed.</p></div>
+          </template>
         </li>
-        <li><strong>Plurality Labs</strong>: Web3 grants framework design
+        <li class="proj" tabindex="0" role="button" aria-haspopup="dialog">
+          <strong>Plurality Labs</strong>: Web3 grants framework design <span class="open-hint">→ view</span>
           <div class="tags"><span class="t-design">Program Design</span><span class="t-design">Experiment Design</span><span class="t-design">Community Design</span><span class="t-design">Zero-to-One</span></div>
+          <template class="detail">
+            <h2 class="detail-title">Plurality Labs</h2>
+            <p class="detail-sub">Web3 grants framework design</p>
+            <div class="detail-block"><span class="detail-label">Challenge</span><p>How do you allocate funding in a decentralized community without relying on traditional grantmaking?</p></div>
+            <div class="detail-block"><span class="detail-label">Role</span><p class="detail-role">Program Design · Experiment Design · Community Strategy</p></div>
+            <div class="detail-block"><span class="detail-label">What I built</span><p>Designed and operated an experimental grant program exploring pluralistic funding models from concept through execution.</p></div>
+            <div class="detail-block"><span class="detail-label">Outcome</span><p>Ran the entire initiative independently while generating learnings that informed future community governance.</p></div>
+          </template>
         </li>
-        <li><strong>RabbitHole</strong>: Web3 growth and rewards
+        <li class="proj" tabindex="0" role="button" aria-haspopup="dialog">
+          <strong>RabbitHole</strong>: Web3 growth and rewards <span class="open-hint">→ view</span>
           <div class="tags"><span class="t-design">Organizational Design</span><span class="t-design">Innovation Strategy</span><span class="t-content">Editorial Strategy</span><span class="t-gtm">Product Marketing</span><span class="t-lead">Marketing Leadership</span></div>
+          <template class="detail">
+            <h2 class="detail-title">RabbitHole</h2>
+            <p class="detail-sub">Web3 growth and rewards</p>
+            <div class="detail-block"><span class="detail-label">Challenge</span><p>How do you get people to learn crypto by using it, not just reading about it?</p></div>
+            <div class="detail-block"><span class="detail-label">Role</span><p class="detail-role">Marketing Leadership · Innovation Strategy · Editorial Strategy · Product Marketing</p></div>
+            <div class="detail-block"><span class="detail-label">What I built</span><p>Led marketing for a platform that taught people crypto through onchain quests, building the content engine and the systems the team relied on to grow it.</p></div>
+            <div class="detail-block"><span class="detail-label">Outcome</span><p>Helped turn a learn-by-doing model into a recognizable product with a growing, engaged user base.</p></div>
+          </template>
         </li>
-        <li><strong>Unstoppable Domains</strong>: User-owned domains
+        <li class="proj" tabindex="0" role="button" aria-haspopup="dialog">
+          <strong>Unstoppable Domains</strong>: User-owned domains <span class="open-hint">→ view</span>
           <div class="tags"><span class="t-content">Editorial Strategy</span><span class="t-content">Thought Leadership</span><span class="t-content">Audience Growth</span><span class="t-lead">Marketing Leadership</span><span class="t-pos">Narrative Strategy</span></div>
+          <template class="detail">
+            <h2 class="detail-title">Unstoppable Domains</h2>
+            <p class="detail-sub">User-owned domains</p>
+            <div class="detail-block"><span class="detail-label">Challenge</span><p>How do you make user-owned digital identity make sense to a mainstream audience?</p></div>
+            <div class="detail-block"><span class="detail-label">Role</span><p class="detail-role">Marketing Leadership · Editorial Strategy · Thought Leadership · Narrative Strategy</p></div>
+            <div class="detail-block"><span class="detail-label">What I built</span><p>Led editorial and narrative strategy for user-owned web3 domains, producing thought leadership that made a technical idea approachable and grew the audience around it.</p></div>
+            <div class="detail-block"><span class="detail-label">Outcome</span><p>Sharpened the brand's voice and expanded its reach within the digital-identity conversation.</p></div>
+          </template>
         </li>
-        <li><strong>Content Allies</strong>: B2B content agency
+        <li class="proj" tabindex="0" role="button" aria-haspopup="dialog">
+          <strong>Content Allies</strong>: B2B content agency <span class="open-hint">→ view</span>
           <div class="tags"><span class="t-design">Organizational Design</span><span class="t-content">Editorial Strategy</span><span class="t-content">Thought Leadership</span><span class="t-design">Systems Design</span><span class="t-lead">Marketing Leadership</span></div>
+          <template class="detail">
+            <h2 class="detail-title">Content Allies</h2>
+            <p class="detail-sub">B2B content agency</p>
+            <div class="detail-block"><span class="detail-label">Challenge</span><p>How do you produce content and podcasts for many B2B clients at once without quality slipping?</p></div>
+            <div class="detail-block"><span class="detail-label">Role</span><p class="detail-role">Organizational Design · Systems Design · Editorial Strategy · Marketing Leadership</p></div>
+            <div class="detail-block"><span class="detail-label">What I built</span><p>Built the editorial systems and team structure behind a B2B content and podcast agency, standardizing how shows and content were produced across clients.</p></div>
+            <div class="detail-block"><span class="detail-label">Outcome</span><p>Created a repeatable production engine that delivered consistent, high-quality content at scale.</p></div>
+          </template>
         </li>
-        <li><strong>MVMT Blog</strong>: Travel publication with 600,000+ views
+        <li class="proj" tabindex="0" role="button" aria-haspopup="dialog">
+          <strong>MVMT Blog</strong>: Travel publication with 600,000+ views <span class="open-hint">→ view</span>
           <div class="tags"><span class="t-pos">Positioning</span><span class="t-content">Editorial Strategy</span><span class="t-design">Zero-to-One</span><span class="t-content">Audience Growth</span><span class="t-design">Community Design</span></div>
+          <template class="detail">
+            <h2 class="detail-title">MVMT Blog</h2>
+            <p class="detail-sub">Travel publication with 600,000+ views</p>
+            <div class="detail-block"><span class="detail-label">Challenge</span><p>Could a travel publication built from scratch reach a real audience with no media budget?</p></div>
+            <div class="detail-block"><span class="detail-label">Role</span><p class="detail-role">Positioning · Editorial Strategy · Audience Growth · Community Design</p></div>
+            <div class="detail-block"><span class="detail-label">What I built</span><p>Founded and grew a travel publication from zero, defining its editorial voice and building an audience through consistent, organic storytelling.</p></div>
+            <div class="detail-block"><span class="detail-label">Outcome</span><p>Grew the publication past 600,000 readers, entirely through organic reach.</p></div>
+          </template>
         </li>
-        <li><strong>LawStud.io</strong>: Two-sided legal marketplace
+        <li class="proj" tabindex="0" role="button" aria-haspopup="dialog">
+          <strong>LawStud.io</strong>: Two-sided legal marketplace <span class="open-hint">→ view</span>
           <div class="tags"><span class="t-gtm">Product Launch</span><span class="t-pos">Narrative Strategy</span><span class="t-pos">Positioning</span><span class="t-gtm">Go-to-Market</span><span class="t-content">Audience Growth</span></div>
+          <template class="detail">
+            <h2 class="detail-title">LawStud.io</h2>
+            <p class="detail-sub">Two-sided legal marketplace</p>
+            <div class="detail-block"><span class="detail-label">Challenge</span><p>How do you launch a two-sided legal marketplace and get both sides to show up?</p></div>
+            <div class="detail-block"><span class="detail-label">Role</span><p class="detail-role">Product Launch · Positioning · Narrative Strategy · Go-to-Market</p></div>
+            <div class="detail-block"><span class="detail-label">What I built</span><p>Founded a legal tech startup during law school, defining its positioning and go-to-market and building demand on both sides of the marketplace.</p></div>
+            <div class="detail-block"><span class="detail-label">Outcome</span><p>Took the product from idea to launch and validated appetite for a new kind of legal marketplace.</p></div>
+          </template>
         </li>
       </ul>
     </section>
@@ -191,6 +302,13 @@
   </main>
 </div>
 
+<div class="overlay" id="projModal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Project details">
+    <button class="modal-close" type="button" aria-label="Close">&times;</button>
+    <div class="modal-body"></div>
+  </div>
+</div>
+
 <script>
   const body=document.body;
   document.querySelectorAll('.service').forEach(card=>{
@@ -200,6 +318,39 @@
     card.addEventListener('focusin',()=>body.dataset.tint=tint);
     card.addEventListener('focusout',()=>delete body.dataset.tint);
   });
+
+  const modal=document.getElementById('projModal');
+  const modalBody=modal.querySelector('.modal-body');
+  const closeBtn=modal.querySelector('.modal-close');
+  let lastFocused=null;
+
+  function openModal(tpl,trigger){
+    lastFocused=trigger||null;
+    modalBody.innerHTML='';
+    modalBody.appendChild(tpl.content.cloneNode(true));
+    modal.hidden=false;
+    body.style.overflow='hidden';
+    closeBtn.focus();
+  }
+  function closeModal(){
+    modal.hidden=true;
+    modalBody.innerHTML='';
+    body.style.overflow='';
+    if(lastFocused){lastFocused.focus();lastFocused=null;}
+  }
+
+  document.querySelectorAll('.cred li.proj').forEach(li=>{
+    const tpl=li.querySelector('template.detail');
+    if(!tpl) return;
+    li.addEventListener('click',()=>openModal(tpl,li));
+    li.addEventListener('keydown',e=>{
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();openModal(tpl,li);}
+    });
+  });
+
+  closeBtn.addEventListener('click',closeModal);
+  modal.addEventListener('click',e=>{ if(e.target===modal) closeModal(); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&!modal.hidden) closeModal(); });
 </script>
 </body>
 </html>
